@@ -1,0 +1,17 @@
+const express = require("express");
+const {getAllExercises, getExercise, createExercise, editExercise, deleteExercise } = require("../controllers/exerciseController");
+const router = express.Router();
+
+router.get("/", getAllExercises);
+
+router.get("/:id", getExercise);
+
+router.post("/create/new", createExercise);
+
+router.put("/edit/:id", editExercise);
+
+router.delete("/delete/:id", deleteExercise);
+
+module.exports = router;
+
+

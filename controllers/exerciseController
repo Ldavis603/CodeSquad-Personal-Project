@@ -1,0 +1,98 @@
+const exerciseData = require('../data/data.js');
+
+const getAllExercises = async (req, res, next) => {
+    try {
+        await res.status(200).json({
+            success: {message: "Found all exercises!"}, 
+            data: exerciseData,
+            statusCode: 200,
+        })
+    } catch (error) {
+        res.status(400).json({
+            error: {message: "Something went wrong getting all exercises"},
+        })
+    }
+};
+
+const getExercise = async (req, res, next) => {
+    const {id} = request.params;
+
+    const foundExercise = exerciseData.find(exercsise => exerciseData.id === Number(id));
+
+    try {
+        await res.status(200).json({
+            success: {message: "The exercise has been found!"},
+            data: foundExercise,
+            statusCode: 200
+        })
+    } catch (error) {
+        res.status(400).json({
+            error: {message: "Something went wrong retrieving a exercise!"}
+        })
+    }
+};
+
+const createExercise = async (req, res, next) => {
+    const {type, name, description} = req.body;
+
+    const newExercise = newExercise({
+        type: type,
+        name: name,
+        description: description
+    });
+
+    try {
+        await newExercise.save();
+        res.status(201).json({
+            success: {message: "A new exercise has been created!"},
+            data: newExercise,
+            statusCode: 201,
+        })
+    } catch (error) {
+        res.status(400).json({
+            error: {message: "Something went wrong creating an exercise!"}
+        })
+    }
+};
+
+const editExercise = async (req, res, next) => {
+    const {id} = req.params;
+    const {type, name, description} = req.body;
+
+    try {
+        await
+        Exercise.findByIdAndUpdate(id, {
+            $set: {
+                type,
+                name,
+                description
+            }
+        }, {new: true});
+        res.status(201).json({
+            success: {message: "Exercise is updated"},
+            statusCode: 201,
+        })
+      } catch (error) {
+        res.status(400).json({
+            error: {message: "Something went wrong while editing an exercise!"},
+        })
+      }
+};
+
+const deleteExercise = async (req, res, next) => {
+    const {id} = req.params;
+
+    try {
+        awaitExercise.findByIdAndDelete(id)
+        res.status(200).json({
+            success: {message: "Exercise deleted successfully!"},
+            statusCode: 200,
+        })
+    } catch (error) {
+        res.status(400).json({
+            error: {message: "Something went wrong while deleting the exercise!"}
+        })
+    }
+};
+
+module.exports = {getAllExercises, getExercise, createExercise, editExercise, deleteExercise};
