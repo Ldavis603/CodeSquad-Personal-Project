@@ -2,7 +2,7 @@ const exerciseData = require('../data/data.js');
 
 const getAllExercises = async (req, res, next) => {
     try {
-        await res.status(200).json({
+            res.status(200).json({
             success: {message: "Found all exercises!"}, 
             data: exerciseData,
             statusCode: 200,
@@ -17,10 +17,10 @@ const getAllExercises = async (req, res, next) => {
 const getExercise = async (req, res, next) => {
     const {id} = request.params;
 
-    const foundExercise = exerciseData.find(exercsise => exerciseData.id === Number(id));
+    const foundExercise = exerciseData.find(exercise => exercise.id === Number(id));
 
     try {
-        await res.status(200).json({
+            res.status(200).json({
             success: {message: "The exercise has been found!"},
             data: foundExercise,
             statusCode: 200
@@ -35,7 +35,7 @@ const getExercise = async (req, res, next) => {
 const createExercise = async (req, res, next) => {
     const {type, name, description} = req.body;
 
-    const newExercise = newExercise({
+    const newExercise = new Exercise({
         type: type,
         name: name,
         description: description
@@ -60,8 +60,7 @@ const editExercise = async (req, res, next) => {
     const {type, name, description} = req.body;
 
     try {
-        await
-        Exercise.findByIdAndUpdate(id, {
+    const updatedExercise = await Exercise.findByIdAndUpdate(id, {
             $set: {
                 type,
                 name,
@@ -70,6 +69,7 @@ const editExercise = async (req, res, next) => {
         }, {new: true});
         res.status(201).json({
             success: {message: "Exercise is updated"},
+            data: updatedExercise,
             statusCode: 201,
         })
       } catch (error) {
@@ -83,7 +83,7 @@ const deleteExercise = async (req, res, next) => {
     const {id} = req.params;
 
     try {
-        awaitExercise.findByIdAndDelete(id)
+        await Exercise.findByIdAndDelete(id)
         res.status(200).json({
             success: {message: "Exercise deleted successfully!"},
             statusCode: 200,
