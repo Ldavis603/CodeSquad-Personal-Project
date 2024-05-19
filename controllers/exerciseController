@@ -33,11 +33,11 @@ const getExercise = async (req, res, next) => {
 };
 
 const createExercise = async (req, res, next) => {
-    const {type, name, description} = req.body;
+    const {type, exercise, description} = req.body;
 
     const newExercise = new Exercise({
         type: type,
-        name: name,
+        exercise: exercise,
         description: description
     });
 
@@ -57,13 +57,13 @@ const createExercise = async (req, res, next) => {
 
 const editExercise = async (req, res, next) => {
     const {id} = req.params;
-    const {type, name, description} = req.body;
+    const {type, exercise, description} = req.body;
 
     try {
     const updatedExercise = await Exercise.findByIdAndUpdate(id, {
             $set: {
                 type,
-                name,
+                exercise,
                 description
             }
         }, {new: true});

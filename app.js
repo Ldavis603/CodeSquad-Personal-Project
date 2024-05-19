@@ -1,14 +1,19 @@
+require("dotenv").config();
+// require("./config/connection");
+
 const express = require("express");
 const morgan = require("morgan");
 const path = require("node:path");
 const app = express();
 const PORT = 3000;
-// const cors = require("cors");
+const cors = require("cors");
 
 app.use(morgan("dev"));
 
 // Define routing variable
 const exerciseRoutes = require('./routes/exerciseRoutes');
+const siteRoutes = require('./routes/siteRouter');
+
 
 
 app.use(express.json());
@@ -18,6 +23,7 @@ app.use(express.urlencoded({extended: false}));
 
 // Route path
 app.use("/api/exercise", exerciseRoutes);
+app.use("/api/siteRoutes", siteRoutes);
 
 
 //GET routes
