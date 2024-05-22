@@ -7,9 +7,15 @@ const { register, login, logout } = require('../controllers/siteController');
 
 router.post("/register", register);
 
-router.post("/login", login);
+// router.post("/login", login);
+router.post("/login", 
+passport.authenticate("local", {
+    failureRedirect: "/login/error",
+    failureMessage: true,
+}),
+login);
 
-router.get("/login/error", (request, response, next) => {
+router.get("/login/error", (req, res, next) => {
     response.json("Login error");
 });
 
