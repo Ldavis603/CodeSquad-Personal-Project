@@ -37,7 +37,7 @@ router.get("/login/github/failed", (req, res, next) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    failureRedirect: "/login/error",
+    failureRedirect: "/api/authRoutes/login/error",
     failureMessage: true,
   }),
   login

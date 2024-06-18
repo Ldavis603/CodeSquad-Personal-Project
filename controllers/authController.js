@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
 
 const register = async (req, res, next) => {
-  const { username, password } = req.body;
+  const { firstName, username, password } = req.body;
 
   try {
     bcrypt.hash(password, 10, async (error, hashedPassword) => {
@@ -12,6 +12,7 @@ const register = async (req, res, next) => {
       }
 
       const newUser = new User({
+        firstName: firstName,
         username: username,
         password: hashedPassword,
         googleId: "",

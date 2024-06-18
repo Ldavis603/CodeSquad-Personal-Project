@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        required: true,
     },
     username: {
         type: String,
@@ -19,13 +18,13 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        required: true,
     },
     salt: {
         type: String,
     },
     strategy: {
         type: String,
-        required: true,
     },
     googleId: {
         type: String
