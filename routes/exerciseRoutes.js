@@ -22,9 +22,9 @@ const checkAuthentication = (req, res, next) => {
 // router.get("/exercise", checkAuthentication, (req, res, next) => {
 // });
 
-router.get("/exercise/create-exercise", (req, res, next) => {
-  res.json("You're in the path to create an exercise.");
-});
+// router.get("/exercise/create-exercise", (req, res, next) => {
+//   res.json("You're in the path to create an exercise.");
+// });
 
 router.get("/", getAllExercises);
 

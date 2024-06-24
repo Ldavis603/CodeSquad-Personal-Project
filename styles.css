@@ -1,0 +1,381 @@
+
+*{
+ margin: 0; 
+ padding: 0; 
+box-sizing: border-box;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-transform:none;
+text-decoration: none;
+}
+
+:root {
+    --teal: #006b6b;
+    --light-teal: #009e9e;
+    --yellow: #fccf14;
+    --blue: #063c5e;
+    --grey: #c2c2c2;
+    --white: #ffffff;
+
+}
+
+  /* Smartphone */
+
+  @media screen and (min-width: 320px) and (max-width: 480px)  {
+    .navbar ul {display: none; } 
+    .navbar .fa-bars {display: block; color: grey; font-size: 48px;}
+    
+  }
+
+
+  /* Tablet  */
+
+  @media screen and (min-width: 481px) and (max-width: 768px)  {
+      .navbar ul {display: none; } 
+      .navbar .fa-bars {display: block; color: grey; font-size: 48px;}
+
+      } 
+
+       /* Footer Media Query */
+    @media screen and (min-width: 769px) {
+        .footer-div {
+            flex-direction: row !important;
+            height: 10px;
+    }
+}
+   
+   
+
+body{
+    width: 100%;
+    margin: 0;
+    overflow-x: scroll; 
+    background-image: linear-gradient(white, teal);
+    line-height: 50px;
+    height: 100vh;
+}
+/* Header and Nav */
+header{
+display: flex;
+align-items: center;
+justify-content: space-between;
+top:0; left:0; right: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    }
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar ul li {
+    position: relative;
+    float: left;
+}
+
+.navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color:dimgrey;
+    display: block;
+}
+
+.navbar ul li a:hover{
+    background: grey;
+    color:white;
+}
+
+/* Headers */
+h1 {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 3%;
+    text-align: center;
+    justify-content: center;
+    color: var(--light-teal);
+    font-weight: bold;
+}
+
+h3 {
+    color: black;
+    text-transform: uppercase;
+}
+
+
+.upper-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--white);
+    padding: 2%;
+    /* margin: 5%; */
+    border: 4px solid var(--grey);
+    width: 75%;
+    margin: 30px;
+    margin-left: 15%;
+    
+ }  
+
+ img {
+    border-radius: 50%;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  .join-button {
+    display: flex;
+    justify-content: center;
+    margin-left: 50%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: orangered;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+
+  .footer-div {
+    color: black;
+    display: flex;
+    justify-content: space-around !important;
+    flex-wrap: wrap;   
+    flex-direction: column;
+    justify-content:center;
+    padding-left: 24px;
+    width: 100%;
+    
+}
+
+footer {
+    width: 100%;
+    position:absolute;
+    bottom: 0;
+    height: 15vh;
+    padding-bottom: 0px;
+    padding-left: 90px;
+    background:teal;
+
+}
+
+
+.footer__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background: linear-gradient(teal,white);
+    border-radius: 100px;
+    color: black;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
+  }
+
+
+  input[type=text], input[type=password] {
+    
+    max-width:max-content;
+    padding: 12px;
+    margin: 5px 0 22px 0;
+    display: flex;
+    border:grey;
+    background: lightgrey;
+    border-radius: 20px;
+    color: teal;
+    font-size: 14px;
+  }
+  
+
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+    border-radius: 20px;
+  }
+  
+  
+  button {
+    background-color: grey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    align-items: center;
+    justify-content: center;
+    max-width: max-content;
+
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+  
+ 
+  
+  
+    .signupbtn {
+    display: flex;
+    max-width: fit-content;
+    border-radius: 10px;
+    background-color: teal;
+  }
+  
+/* Containers */
+    .container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 4px solid var(--teal);
+    justify-content: space-around;
+    width: 70%;
+    margin: 30px;
+    margin-left: 20%;
+    border-radius: 20px;
+    
+    
+  }
+
+  .top-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 4px solid var(--teal);
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    
+  }
+
+  .bottom-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 4px solid var(--teal);
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    
+  }
+
+  
+  .sign-up::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .sign-in::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .search-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 5%;
+    margin-bottom: 10px;
+  }
+
+  .search-container i {
+    position: absolute;
+    padding: 11px;
+    margin: 4px;
+  }
+
+.input-icons i {
+    position: absolute;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 2px;
+    text-align: right;
+    
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: grey;
+  }
+
+  .create-new{
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: lightgrey;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin: 4px;
+    padding: 11px;  
+    
+}
+  
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  .tabcontent {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+
+
+
+  
+  

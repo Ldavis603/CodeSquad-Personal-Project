@@ -35,15 +35,15 @@ const login = async (req, res, next) => {
   console.log(req.user);
   try {
     res.status(200).json({
-    success: { message: "User logged in." },
-    data: { username: req.user.username },
-    statusCode: 200,
-  });
-} catch (error) {
-    res.status(400).json({
-        error: {message: "There was an error logging in."},
+      success: { message: "User logged in." },
+      data: { username: req.user.username },
+      statusCode: 200,
     });
-}
+  } catch (error) {
+    res.status(400).json({
+      error: { message: "There was an error logging in." },
+    });
+  }
 };
 
 const logout = async (req, res, next) => {

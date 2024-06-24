@@ -1,15 +1,14 @@
-const exerciseData = require("../data/data.js");
-const Exercise = require("../models/exerciseModel.js")
+const Exercise = require("../models/exerciseModel.js");
 
 const getAllExercises = async (req, res, next) => {
   try {
-    await Exercise.find({})
-    .then(exercise =>
+    const exercise = await Exercise.find({});
+
     res.status(200).json({
       success: { message: "Found all exercises!" },
-      data: exerciseData,
+      data: exercise,
       statusCode: 200,
-    }));
+    });
   } catch (error) {
     res.status(400).json({
       error: { message: "Something went wrong getting all exercises" },
@@ -20,9 +19,7 @@ const getAllExercises = async (req, res, next) => {
 const getExercise = async (req, res, next) => {
   const { id } = req.params;
 
-  const foundExercise = await Exercise.find(
-    (exercise) => exercise.id === Number(id)
-  );
+  const foundExercise = await Exercise.findById(id);
 
   try {
     res.status(200).json({
@@ -62,7 +59,7 @@ const createExercise = async (req, res, next) => {
 
 const editExercise = async (req, res, next) => {
   const { id } = req.params;
-  const { type, exercise, description } = req.body;
+  const { type, exercise, description, exerciseURL} = req.body;
 
   try {
     const updatedExercise = await Exercise.findByIdAndUpdate(
@@ -72,6 +69,7 @@ const editExercise = async (req, res, next) => {
           type,
           exercise,
           description,
+          exerciseURL
         },
       },
       { new: true }

@@ -12,6 +12,9 @@ const exerciseSchema = new mongoose.Schema({
     description: {
         type: String,
         required: [true, "An exercise description is required"]
+    }, 
+    exerciseURL: {
+        type: String
     }
 });
 
